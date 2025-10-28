@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "C:\\Users\\Alan Felipe\\Desktop\\movieflix-api\\generated",
+      "value": "C:\\Users\\Alan Felipe\\Desktop\\movieflix-api\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -39,7 +39,7 @@ const config: runtime.GetPrismaClientConfig = {
     "sourceFilePath": "C:\\Users\\Alan Felipe\\Desktop\\movieflix-api\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
-  "relativePath": "../prisma",
+  "relativePath": "../../prisma",
   "clientVersion": "6.18.0",
   "engineVersion": "34b5a692b7bd79939a9a2c3ef97d816e749cda2f",
   "datasourceNames": [
@@ -55,8 +55,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Genre {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"genres\")\n}\n\nmodel Language {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"languages\")\n}\n\nmodel Movie {\n  id           Int       @id @default(autoincrement())\n  title        String?   @db.VarChar(100)\n  release_date DateTime? @db.Date\n  genre_id     Int?\n  language_id  Int?\n  oscar_count  Int?\n  genres       Genre?    @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_genre\")\n  languages    Language? @relation(fields: [language_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_language\")\n\n  @@map(\"movies\")\n}\n",
-  "inlineSchemaHash": "fbf34829f5623b39166c52ae952f4801e8e26be77efe139cf9a64924595d5fa3",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Genre {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"genres\")\n}\n\nmodel Language {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"languages\")\n}\n\nmodel Movie {\n  id           Int       @id @default(autoincrement())\n  title        String?   @db.VarChar(100)\n  release_date DateTime? @db.Date\n  genre_id     Int?\n  language_id  Int?\n  oscar_count  Int?\n  genres       Genre?    @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_genre\")\n  languages    Language? @relation(fields: [language_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_language\")\n\n  @@map(\"movies\")\n}\n",
+  "inlineSchemaHash": "3ad3dd430ff7397c7cee8d39cde307d591d50642fe595a23aab1ac92284d6d37",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},

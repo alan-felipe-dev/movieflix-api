@@ -41,7 +41,7 @@ export { Prisma }
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node")
-path.join(process.cwd(), "generated/query_engine-windows.dll.node")
+path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
 
 /**
  * Model Genre
