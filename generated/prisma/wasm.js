@@ -154,6 +154,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -161,7 +165,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -180,8 +184,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Genre {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"genres\")\n}\n\nmodel Language {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"languages\")\n}\n\nmodel Movie {\n  id           Int       @id @default(autoincrement())\n  title        String?   @db.VarChar(100)\n  release_date DateTime? @db.Date\n  genre_id     Int?\n  language_id  Int?\n  oscar_count  Int?\n  genres       Genre?    @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_genre\")\n  languages    Language? @relation(fields: [language_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_language\")\n\n  @@map(\"movies\")\n}\n",
-  "inlineSchemaHash": "1f98d2a6881d1a9163f16ecd851d6b66ca3ae7a53a895e2932be46b4f83150e2",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n  output        = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Genre {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"genres\")\n}\n\nmodel Language {\n  id     Int     @id @default(autoincrement())\n  name   String? @db.VarChar(100)\n  movies Movie[]\n\n  @@map(\"languages\")\n}\n\nmodel Movie {\n  id           Int       @id @default(autoincrement())\n  title        String?   @db.VarChar(100)\n  release_date DateTime? @db.Date\n  genre_id     Int?\n  language_id  Int?\n  oscar_count  Int?\n  genres       Genre?    @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_genre\")\n  languages    Language? @relation(fields: [language_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: \"fk_language\")\n\n  @@map(\"movies\")\n}\n",
+  "inlineSchemaHash": "fc8b346169675caa1d1e581324477eece11a9c48072dfd5e79cd8efe846b79bf",
   "copyEngine": true
 }
 config.dirname = '/'
